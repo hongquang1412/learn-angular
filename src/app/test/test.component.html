@@ -1,8 +1,10 @@
+<!-- Binding -->
+
+<!-- INTERPOLATION -->
 <p>{{ user.name }}</p>
 <p>{{ user.age }}</p>
-
-<!-- Binding -->
 <!-- Property binding -->
+<!-- khai báo property binding [property]="expression" -->
 <input [type]="user.type" [value]="user.name" />
 <!-- Event binding  -->
 <button (click)="show('hello')">click</button>
@@ -66,6 +68,32 @@ odd: boolean	(True nếu đây là phần tử ở index lẻ) -->
 </div>
 
 <!-- ATTRIBUTE DIRECTIVE -->
-<div [class.tab-active]="isTabActive">some content</div>
-<div [class]="content">some content</div>
 
+<!-- Class binding
+Sử dụng để add hoặc remove class dựa trên điều kiện  -->
+<!-- cách 1 -->
+<div [class.tab-active]="isTabActive">some content</div>
+<!-- cách 2 -->
+<div [class]="{ 'tab-active': isTabActive }">some content</div>
+
+<!-- sử dụng mảng class -->
+<div [class]="['my-class', 'another-class']">sử dụng mảng class</div>
+<div [ngClass]="['my-class', 'another-class']">sử dụng mảng class</div>
+<!-- sử dụng mảng class dựa theo điều kiện -->
+<div
+  [class]="{
+    'my-class': isMyClassActive,
+    'another-class': isAnotherClassActive
+  }"
+>
+  sử dụng mảng class dựa theo điều kiện
+</div>
+
+<div
+  [ngClass]="{
+    'my-class': isMyClassActive,
+    'another-class': isAnotherClassActive
+  }"
+>
+  sử dụng mảng class dựa theo điều kiện
+</div>

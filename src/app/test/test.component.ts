@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class TestComponent {
   isTabActive= true;
+  isMyClassActive= true;
+  isAnotherClassActive= false;
   user = {
     type: 'text',
     name: 'Hong Quang',
