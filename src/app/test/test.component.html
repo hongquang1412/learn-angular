@@ -1,0 +1,71 @@
+<p>{{ user.name }}</p>
+<p>{{ user.age }}</p>
+
+<!-- Binding -->
+<!-- Property binding -->
+<input [type]="user.type" [value]="user.name" />
+<!-- Event binding  -->
+<button (click)="show('hello')">click</button>
+<!-- two way binding -->
+
+<!-- <input [type]="user.type" [(ngModel)]="user.name" />-->
+
+<!-- if -->
+<div *ngIf="user.age > 20">Bạn có thể xem PG-13</div>
+
+<!-- ngIf -->
+<!-- if else cách 1 -->
+<div *ngIf="user.age >= 13; else noPG13">Bạn có thể xem PG-13</div>
+<ng-template #noPG13>
+  <div>Bạn không thể xem PG-13</div>
+</ng-template>
+
+<!-- if else cách 2 dễ nhìn hơn -->
+<ng-template [ngIf]="user.age >= 13" [ngIfElse]="noPG13">
+  <div>Bạn có thể xem PG-13</div>
+</ng-template>
+
+<ng-template #noPG13>
+  <div>Bạn không được phép xem PG-13</div>
+</ng-template>
+
+<!-- ngFor -->
+<div *ngFor="let author of authors">
+  {{ author.id }} - {{ author.firstName }} {{ author.lastName }} ,
+  {{ author.email }}, {{ author.gender }}
+</div>
+
+<!-- MỘT SỐ LOCAL VARIABLE TRONG MỘT NGFOROF TEMPLATE 
+$implicit: T	(Giá trị của phần tử trong danh sách ở lần lặp hiện tại)
+index: number	(index của lần lặp hiện tại)
+count: number	(số lượng phần tử trong danh sách)
+first: boolean	(True nếu đây là phần tử đầu tiên trong danh sách)
+last: boolean	(True nếu đây là phần tử cuối cùng trong danh sách)
+even: boolean	(True nếu đây là phần tử ở index chẵn)
+odd: boolean	(True nếu đây là phần tử ở index lẻ) -->
+<div *ngFor="let author of authors; index as idx; count as total">
+  ({{ idx }})/({{ total }}): {{ author.firstName }} {{ author.lastName }} ,
+  {{ author.email }}, {{ author.gender }}
+</div>
+
+<div *ngFor="let author of authors">
+  <div *ngIf="author.id == 2">{{ author.firstName }}</div>
+</div>
+
+<!-- SỬ DỤNG NHIỀU STRUCUTRE DIRECTIVE TRÊN CÙNG MỘT PHẦN TỬ -->
+<!-- sử dụng ng-container để dùng ngFor vào ngIf -->
+<div *ngFor="let author of authors">
+  <ng-container *ngIf="author.id == 2">
+    {{ author.firstName }} 111</ng-container
+  >
+</div>
+
+<!-- hoặc ng-template -->
+<div *ngFor="let author of authors">
+  <ng-template [ngIf]="author.id == 2"> {{ author.firstName }} 222</ng-template>
+</div>
+
+<!-- ATTRIBUTE DIRECTIVE -->
+<div [class.tab-active]="isTabActive">some content</div>
+<div [class]="content">some content</div>
+
