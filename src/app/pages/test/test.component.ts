@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
-  isTabActive= true;
-  isMyClassActive= true;
-  isAnotherClassActive= false;
+  isTabActive = true;
+  isMyClassActive = true;
+  isAnotherClassActive = false;
+
   user = {
     type: 'text',
     name: 'Hong Quang',
@@ -25,20 +27,23 @@ export class TestComponent {
   authors = [
     {
       id: 1,
-      firstName: "Flora",
-      lastName: "Twell",
-      email: "ftwell0@phoca.cz",
-      gender: "Female",
-      ipAddress: "99.180.237.33",
+      firstName: 'Flora',
+      lastName: 'Twell',
+      email: 'ftwell0@phoca.cz',
+      gender: 'Female',
+      ipAddress: '99.180.237.33',
     },
     {
       id: 2,
-      firstName: "Priscella",
-      lastName: "Signe",
-      email: "psigne1@berkeley.edu",
-      gender: "Female",
-      ipAddress: "183.243.228.65",
+      firstName: 'Priscella',
+      lastName: 'Signe',
+      email: 'psigne1@berkeley.edu',
+      gender: 'Female',
+      ipAddress: '183.243.228.65',
     },
-
   ];
+  
+  trackByFn(index: number, item: any): number {
+    return item.id;
+  }
 }
