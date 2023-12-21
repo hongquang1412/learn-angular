@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -42,7 +42,7 @@ export class TestComponent {
       ipAddress: '183.243.228.65',
     },
   ];
-  
+
   trackByFn(index: number, item: any): number {
     return item.id;
   }

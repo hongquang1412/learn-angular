@@ -43,7 +43,14 @@ first: boolean	(True nếu đây là phần tử đầu tiên trong danh sách)
 last: boolean	(True nếu đây là phần tử cuối cùng trong danh sách)
 even: boolean	(True nếu đây là phần tử ở index chẵn)
 odd: boolean	(True nếu đây là phần tử ở index lẻ) -->
-<div *ngFor="let author of authors; let i = index; let total = count; trackBy: trackByFn">
+<div
+  *ngFor="
+    let author of authors;
+    let i = index;
+    let total = count;
+    trackBy: trackByFn
+  "
+>
   ({{ i }})/({{ total }}): {{ author.firstName }} {{ author.lastName }} ,
   {{ author.email }}, {{ author.gender }}
 </div>
@@ -96,5 +103,18 @@ Sử dụng để add hoặc remove class dựa trên điều kiện  -->
 >
   sử dụng mảng class dựa theo điều kiện
 </div>
+
+<!-- Sharing data between child and parent directives and components 
+(parent: Chat, child: Child)
+-->
+<!-- 
+  @Input:  parent -> child 
+  @Output: parent <- child
+-->
+
+<!-- ngOnchanges -->
+<h4>ngOnchanges</h4>
+<input type="text">
+
 
 <!-- <router-outlet></router-outlet> -->
