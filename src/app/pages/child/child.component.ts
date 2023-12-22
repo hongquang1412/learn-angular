@@ -1,4 +1,11 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { log } from 'console';
 
 @Component({
   selector: 'app-child',
@@ -7,6 +14,18 @@ import { Component, Input } from '@angular/core';
   templateUrl: './child.component.html',
   styleUrl: './child.component.scss',
 })
-export class ChildComponent {
-  @Input() chat?: string;
+export class ChildComponent implements OnInit, OnChanges {
+  @Input() input?: string;
+  public mes?: string;
+
+  // ngOnChanges chỉ chạy khi có input
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges nè');
+    console.log(changes['input'].currentValue);
+  }
+
+  // chỉ chạy 1 lần khi khởi tạo component
+  ngOnInit(): void {
+    console.log('ngOnInit nè');
+  }
 }

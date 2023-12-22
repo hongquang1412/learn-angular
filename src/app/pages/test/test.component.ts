@@ -46,4 +46,9 @@ export class TestComponent {
   trackByFn(index: number, item: any): number {
     return item.id;
   }
+
+  public textInput = 'Quang';
+  handleInput() {
+    console.log(this.textInput);
+  }
 }
