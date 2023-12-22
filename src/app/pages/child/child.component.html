@@ -1,2 +1,7 @@
-<p>{{ input }}</p>
-<p>mes: {{mes}}</p>
+<!-- <p>{{ input }}</p>
+<p>mes: {{ mes }}</p> -->
+
+<div *ngIf="author" style="display: flex">
+  <p>{{ author.name }}</p>
+  <button (click)="handleDelete()">Xóa</button>
+</div>

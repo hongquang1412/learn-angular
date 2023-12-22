@@ -1,4 +1,11 @@
 <p>parent</p>
 <input type="text" #inptext />
 <button (click)="handleSubmit(inptext)">submit</button>
-<app-child [input]="inputValue"></app-child>
+
+<!-- truyền từng author vào child -->
+<app-child
+  [input]="inputValue"
+  *ngFor="let author of authors"
+  [author]="author"
+  (deleteAuthor)="handleDelete($event)"
+></app-child>

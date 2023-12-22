@@ -1,5 +1,7 @@
 import { Component, OnChanges } from '@angular/core';
+// dùng để sử dụng *ng
 import { CommonModule } from '@angular/common';
+// dùng để sử dụng ngModel(two way binding)
 import { FormsModule } from '@angular/forms';
 
 @Component({
